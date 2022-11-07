@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_home_store_scene">
 
     <ImageView
         android:id="@+id/locationImageView"
@@ -11,9 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_location" />
+
 
     <ImageView
         android:id="@+id/filtersImageView"
@@ -31,9 +33,9 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="20dp"
         android:text="Select Category"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/locationImageView" />
 
@@ -55,12 +57,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        tools:itemCount="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/categoryTextView"
+        tools:itemCount="4" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="32dp"
@@ -75,11 +78,10 @@
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:searchIcon="@drawable/ic_search"
             android:iconifiedByDefault="false"
-            android:queryHint="Search" />
+            android:queryHint="Search"
+            android:searchIcon="@drawable/ic_search" />
     </androidx.cardview.widget.CardView>
-
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -102,13 +104,14 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="24dp"
         android:text="Hot Sales"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/floatingActionButton" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"
@@ -135,13 +138,14 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="24dp"
         android:text="Best Seller"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewPager" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="37dp"
@@ -163,4 +167,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bestSellerTextView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

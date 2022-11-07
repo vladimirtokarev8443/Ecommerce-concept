@@ -66,10 +66,10 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
 
     private fun observeViewModel() {
         viewModel.uiStateLiveData.observe(viewLifecycleOwner){
+            Log.d("qqq", "${it.categories}")
             categoryAdapter?.items = it.categories
-            when{
-                0 -> hotSalesAdapter?.items = it.hotSalesPhones.filter { it is HotSales.Phones }
-            }
+            hotSalesAdapter?.items = it.hotSalesPhones
+            bestSellerAdapter?.items = it.bestSellerPhones
         }
     }
 
@@ -78,8 +78,7 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         categoryAdapter = null
         hotSalesAdapter = null
         bestSellerAdapter = null
-        //entityAdapter = null
-        //pagerAdapter = null
+
     }
 
 

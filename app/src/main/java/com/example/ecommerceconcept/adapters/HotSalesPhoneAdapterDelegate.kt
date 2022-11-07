@@ -2,9 +2,11 @@ package com.example.ecommerceconcept.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.HotSales
 import com.example.ecommerceconcept.databinding.ItemHotSalesPhoneBinding
+import com.example.ecommerceconcept.utils.setImageGlide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
 class HotSalesPhoneAdapterDelegate(
@@ -38,8 +40,12 @@ class HotSalesPhoneAdapterDelegate(
         val binding: ItemHotSalesPhoneBinding,
         private val onItemClicked: (position: Int) -> Unit
     ): RecyclerView.ViewHolder(binding.root){
-        fun bind(item: HotSales.Phones){
-
+        fun bind(item: HotSales.Phones)= with(binding) {
+            badgeImageView.isVisible = item.isNew
+            badgeTextView.isVisible = item.isNew
+            productImageView.setImageGlide(url = item.imageUrl)
+            brandTextView.text = item.brand
+            descriptionTextView.text = item.discription
         }
     }
 }

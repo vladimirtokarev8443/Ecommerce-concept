@@ -27,20 +27,20 @@
             android:layout_width="27dp"
             android:layout_height="27dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="14dp"
-            app:cardCornerRadius="14dp"
+            android:layout_marginBottom="18dp"
             android:backgroundTint="?attr/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:cardCornerRadius="14dp"
+            app:layout_constraintBottom_toTopOf="@+id/brandTextView"
+            app:layout_constraintStart_toStartOf="parent">
 
-                <TextView
-                    android:id="@+id/badgeTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New"
-                    android:layout_gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="11sp" />
+            <TextView
+                android:id="@+id/badgeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="New"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
 
         </androidx.cardview.widget.CardView>
 
@@ -49,23 +49,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="59dp"
-            android:textColor="?attr/colorOnPrimary"
+            android:layout_marginBottom="5dp"
             android:text="TextView"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="18dp"
             android:text="TextView"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="11sp"
-            app:layout_constraintStart_toStartOf="@+id/brandTextView"
-            app:layout_constraintTop_toBottomOf="@+id/brandTextView" />
+            app:layout_constraintBottom_toTopOf="@+id/buyNowButton"
+            app:layout_constraintStart_toStartOf="@+id/brandTextView" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buyNowButton"

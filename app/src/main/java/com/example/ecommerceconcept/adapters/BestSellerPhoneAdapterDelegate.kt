@@ -1,9 +1,12 @@
 package com.example.ecommerceconcept.adapters
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.BestSeller
-import com.example.ecommerceconcept.databinding.ItemBestSellerBinding
+import com.example.ecommerceconcept.R
+import com.example.ecommerceconcept.databinding.ItemBestSellerPhoneBinding
+import com.example.ecommerceconcept.utils.setImageGlide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
 class BestSellerPhoneAdapterDelegate(
@@ -16,11 +19,13 @@ class BestSellerPhoneAdapterDelegate(
         items: MutableList<BestSeller>,
         position: Int
     ): Boolean {
-        TODO("Not yet implemented")
+        return item is BestSeller.Phones
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): PhonesHolder {
-        TODO("Not yet implemented")
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemBestSellerPhoneBinding.inflate(inflater, parent,false)
+        return PhonesHolder(binding, onItemClicked)
     }
 
     override fun onBindViewHolder(
@@ -28,13 +33,23 @@ class BestSellerPhoneAdapterDelegate(
         holder: PhonesHolder,
         payloads: MutableList<Any>
     ) {
-        TODO("Not yet implemented")
+        holder.bind(item)
     }
 
     class PhonesHolder(
-        val binding: ItemBestSellerBinding,
+        val binding: ItemBestSellerPhoneBinding,
         private val onItemClicked: (position: Int) -> Unit
     ): RecyclerView.ViewHolder(binding.root){
-        fun bind(item: BestSeller.Phones){}
+        fun bind(item: BestSeller.Phones){
+            binding.productImageView.setImageGlide(item.imageUrl)
+            binding.productTextView.text = item.title
+            binding.discountTextView.text = item.priceDiscount.toString()
+            binding.priceTextView.text = item.price.toString()
+            if (item.favorites){
+                binding.favoritesImageView.setImageResource(R.drawable.ic_favorites__selected)
+            } else {
+                binding.favoritesImageView.setImageResource(R.drawable.ic_favorites)
+            }
+        }
     }
 }

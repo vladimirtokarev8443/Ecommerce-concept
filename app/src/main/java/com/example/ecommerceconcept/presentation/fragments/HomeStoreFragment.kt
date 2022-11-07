@@ -6,9 +6,8 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ecommerceconcept.adapters.CategoryAdapter
-import com.example.ecommerceconcept.adapters.EntityAdapter
-import com.example.ecommerceconcept.adapters.PagerAdapter
+import com.example.domain.models.HotSales
+import com.example.ecommerceconcept.adapters.*
 import com.example.ecommerceconcept.databinding.FragmentHomeStoreBinding
 import com.example.ecommerceconcept.presentation.viewmodel.HomeStoreViewModel
 import com.example.ecommerceconcept.utils.AnimePageTransformer
@@ -20,9 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStoreBinding::inflate) {
 
     private val viewModel: HomeStoreViewModel by viewModels()
-    private var entityAdapter: EntityAdapter? = null
-    private var pagerAdapter: EntityAdapter? = null
     private var categoryAdapter: CategoryAdapter? = null
+    private var hotSalesAdapter: HotSalesAdapter? = null
+    private var bestSellerAdapter: BestSellerAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,9 +36,8 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         categoryAdapter = CategoryAdapter {
             viewModel.onSelectedCategory(it)
         }
-        pagerAdapter = EntityAdapter {  }
-
-        entityAdapter = EntityAdapter {  }
+        hotSalesAdapter = HotSalesAdapter {  }
+        bestSellerAdapter = BestSellerAdapter {  }
 
     }
 
@@ -53,54 +51,36 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         }
 
         with(binding.viewPager){
-            adapter = pagerAdapter
+            adapter = hotSalesAdapter
             offscreenPageLimit = 1
             addItemDecoration(ItemOffsetDecoration(requireContext()))
             setPageTransformer(AnimePageTransformer())
         }
 
         with(binding.itemList){
-            adapter = entityAdapter
+            adapter = bestSellerAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
 
         }
     }
 
-    private fun observeViewModel(){
-        viewModel.categoryLiveData.observe(viewLifecycleOwner){
-            categoryAdapter?.items = it
-        }
-        viewModel.hotSalesLiveData.observe(viewLifecycleOwner){
-            pagerAdapter?.items = it
-            //pagerAdapter?.notifyItemRangeChanged(0,it.size)
-        }
-        viewModel.bestSellerLiveData.observe(viewLifecycleOwner){
-            Log.d("qqq", "$it")
-            entityAdapter?.items = it
-        }
-    }
-
-    private fun getGridLayout(): GridLayoutManager{
-        return GridLayoutManager(requireContext(), 2).apply {
-            spanSizeLookup = object : GridLayoutManager.SpanSizeLookup(){
-                override fun getSpanSize(position: Int): Int {
-                    return when(position){
-                        0 -> 1
-                        else -> 2
-                    }
-                }
+    private fun observeViewModel() {
+        viewModel.uiStateLiveData.observe(viewLifecycleOwner){
+            categoryAdapter?.items = it.categories
+            when{
+                0 -> hotSalesAdapter?.items = it.hotSalesPhones.filter { it is HotSales.Phones }
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        entityAdapter = null
         categoryAdapter = null
-        pagerAdapter = null
+        hotSalesAdapter = null
+        bestSellerAdapter = null
+        //entityAdapter = null
+        //pagerAdapter = null
     }
 
-    companion object{
-        const val CATEGORY = 0
-    }
+
 }

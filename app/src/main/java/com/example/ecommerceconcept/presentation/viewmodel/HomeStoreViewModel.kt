@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Category
 import com.example.domain.models.Entity
-import com.example.domain.usecase.GetProductUseCase
+import com.example.domain.usecase.GetPhonesUseCase
 import com.example.domain.usecase.SelectedCategoryUseCase
 import com.example.ecommerceconcept.R
+import com.example.ecommerceconcept.models.HomeStoreState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,42 +17,42 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeStoreViewModel @Inject constructor(
     private val selectedCategoryUseCase: SelectedCategoryUseCase,
-    private val getProductUseCase: GetProductUseCase
+    private val getPhonesUseCase: GetPhonesUseCase
 ) : ViewModel() {
 
-    private val categoryMutLiveData = MutableLiveData<List<Category>>(createCategoryList())
-    val categoryLiveData: LiveData<List<Category>> get() = categoryMutLiveData
-
-    private val hotSalesMutLiveData = MutableLiveData<List<Entity>>()
-    val hotSalesLiveData: LiveData<List<Entity>> get() = hotSalesMutLiveData
-
-    private val bestSellerMutLiveData = MutableLiveData<List<Entity>>()
-    val bestSellerLiveData: LiveData<List<Entity>> get() = bestSellerMutLiveData
+    private val uiStateMutLiveData = MutableLiveData<HomeStoreState>()
+    val uiStateLiveData: LiveData<HomeStoreState> get() = uiStateMutLiveData
 
     init {
-        getHotSales()
+        createCategory()
+        getPhones()
     }
 
+    private fun createCategory(){
+        uiStateMutLiveData.postValue(HomeStoreState(categories = createCategoryList()))
+    }
 
-    fun getHotSales(){
+    fun getPhones(){
         viewModelScope.launch {
-            val products = getProductUseCase.execute()
-            val hotSales = products.filter { it is Entity.HotSales }
-            val bestSeller = products.filter { it is Entity.BestSeller }
-            hotSalesMutLiveData.postValue(hotSales)
-            bestSellerMutLiveData.postValue(bestSeller)
+            val phones = getPhonesUseCase.execute()
+
+            uiStateMutLiveData.postValue(
+               HomeStoreState(
+                   hotSalesPhones = phones.hotSalesList,
+                   bestSellerPhones = phones.bestSellerList
+               )
+            )
         }
     }
 
-
-
     fun onSelectedCategory(categoryId: Int) {
-        categoryMutLiveData.postValue(
-            selectedCategoryUseCase.execute(
-                categoryList = categoryMutLiveData.value ?: emptyList(),
+        val ui = uiStateMutLiveData.value?.copy(
+            categories =  selectedCategoryUseCase.execute(
+                categoryList = uiStateMutLiveData.value?.categories ?: emptyList(),
                 selectId = categoryId
             )
         )
+        ui?.let { uiStateMutLiveData.postValue(it) }
 
     }
 

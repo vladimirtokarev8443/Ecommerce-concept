@@ -1,7 +1,7 @@
 package com.example.ecommerceconcept.di
 
 import com.example.domain.repository.ProductsRepository
-import com.example.domain.usecase.GetProductUseCase
+import com.example.domain.usecase.GetPhonesUseCase
 import com.example.domain.usecase.SelectedCategoryUseCase
 import dagger.Module
 import dagger.Provides
@@ -18,7 +18,7 @@ class UseCaseModul {
     }
 
     @Provides
-    fun providesGetProductUseCase(productsRepository: ProductsRepository): GetProductUseCase {
-        return GetProductUseCase(productsRepository)
+    fun providesGetProductUseCase(productsRepository: ProductsRepository): GetPhonesUseCase {
+        return GetPhonesUseCase(productsRepository)
     }
 }

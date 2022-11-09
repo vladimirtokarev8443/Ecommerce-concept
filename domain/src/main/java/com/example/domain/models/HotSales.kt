@@ -8,7 +8,5 @@ sealed class HotSales{
         val discription: String,
         val isNew: Boolean = false
     ): HotSales()
-    data class Computer(val id: Int): HotSales()
-    data class Health(val id: Int): HotSales()
-    data class Books(val id: Int): HotSales()
+
 }

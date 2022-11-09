@@ -1,7 +1,6 @@
 package com.example.ecommerceconcept.di
 
-import com.example.data.Networking
-import com.example.data.RunMockyApi
+import com.example.data.api.RunMockyApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

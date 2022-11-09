@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Category
-import com.example.domain.models.Entity
 import com.example.domain.usecase.GetPhonesUseCase
 import com.example.domain.usecase.SelectedCategoryUseCase
 import com.example.ecommerceconcept.R
@@ -34,20 +33,23 @@ class HomeStoreViewModel @Inject constructor(
 
     fun getPhones(){
         viewModelScope.launch {
-            val phones = getPhonesUseCase.execute()
-
-            val ui = uiStateMutLiveData.value?.copy(
-                hotSalesPhones = phones.hotSalesList,
-                bestSellerPhones = phones.bestSellerList
-            )
-            ui?.let{ uiStateMutLiveData.postValue(it) }
+            val product = getPhonesUseCase.execute()
+            uiStateMutLiveData.value?.apply {
+                hotSalesPhones = product.hotSales
+                bestSellerPhones = product.bestSeller
+            }
+//            val ui = uiStateMutLiveData.value?.copy(
+//                hotSalesPhones = product.hotSales,
+//                bestSellerPhones = product.bestSeller
+//            )
+//            ui?.let{ uiStateMutLiveData.postValue(it) }
         }
     }
 
     fun onSelectedCategory(categoryId: Int) {
         val ui = uiStateMutLiveData.value?.copy(
             categories =  selectedCategoryUseCase.execute(
-                categoryList = uiStateMutLiveData.value?.categories ?: emptyList(),
+                categoryList = uiStateMutLiveData.value?.categories ?: createCategoryList(),
                 selectId = categoryId
             )
         )
@@ -55,14 +57,15 @@ class HomeStoreViewModel @Inject constructor(
 
     }
 
+
     fun createCategoryList(): List<Category> {
         return listOf(
             Category(0, R.drawable.ic_phone, "Phones", true),
             Category(1, R.drawable.ic_computer, "Computer"),
             Category(2, R.drawable.ic_health, "Health"),
             Category(3, R.drawable.ic_books, "Books"),
-            Category(4, R.drawable.ic_filters, "Example"),
-            Category(5, R.drawable.ic_filters, "Example2")
+            Category(4, R.drawable.ic_books, "Example"),
+            Category(5, R.drawable.ic_books, "Example2")
         )
     }
 }

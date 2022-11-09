@@ -1,6 +1,6 @@
 package com.example.ecommerceconcept.di
 
-import com.example.data.RunMockyApi
+import com.example.data.api.RunMockyApi
 import com.example.data.repository.ProductRepositoryImpl
 import com.example.domain.repository.ProductsRepository
 import dagger.Module

@@ -1,12 +1,9 @@
 package com.example.ecommerceconcept.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.Category
-import com.example.domain.models.Entity
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemSelectCategoryBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate

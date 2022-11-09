@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/productImageView"
             android:layout_width="88dp"
             android:layout_height="88dp"
             android:scaleType="centerCrop"
@@ -29,10 +29,11 @@
         app:cardCornerRadius="15dp"
         app:cardBackgroundColor="#282843"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/deleteImageView"
         app:layout_constraintTop_toTopOf="parent">
         
         <ImageView
+            android:id="@+id/minusImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
@@ -40,6 +41,7 @@
             app:srcCompat="@drawable/ic_minus"/>
 
         <TextView
+            android:id="@+id/countTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -48,6 +50,7 @@
             android:layout_gravity="center"/>
 
         <ImageView
+            android:id="@+id/plusImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -57,7 +60,7 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/deleteImageView"
         android:layout_width="16dp"
         android:layout_height="15dp"
         android:layout_marginEnd="32dp"
@@ -71,7 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:text="TextView"
+        tools:text="Galaxy"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/cardView3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +84,9 @@
         android:id="@+id/priceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="$3000.00"
+        android:textSize="20sp"
+        android:textColor="?attr/colorPrimary"
         android:layout_marginStart="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView3"

@@ -1,18 +1,14 @@
 package com.example.ecommerceconcept.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.domain.models.HotSales
 import com.example.ecommerceconcept.adapters.*
 import com.example.ecommerceconcept.databinding.FragmentHomeStoreBinding
 import com.example.ecommerceconcept.presentation.viewmodel.HomeStoreViewModel
-import com.example.ecommerceconcept.utils.AnimePageTransformer
-import com.example.ecommerceconcept.utils.BaseFragment
-import com.example.ecommerceconcept.utils.ItemOffsetDecoration
+import com.example.ecommerceconcept.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,47 +22,51 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initAdapters()
         initLists()
         observeViewModel()
 
     }
 
-    private fun initAdapters(){
+    private fun initLists(){
+        initCategory()
+        initHotSales()
+        initBestSeller()
+    }
+
+    private fun initCategory(){
         categoryAdapter = CategoryAdapter {
             viewModel.onSelectedCategory(it)
         }
-        hotSalesAdapter = HotSalesAdapter {  }
-        bestSellerAdapter = BestSellerAdapter {  }
-
-    }
-
-    private fun initLists(){
         with(binding.categoryList){
             adapter = categoryAdapter
             layoutManager = LinearLayoutManager(requireContext()).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
-            addItemDecoration(ItemOffsetDecoration(requireContext()))
+            addItemDecoration(ItemOffsetCategory(requireContext()))
         }
+    }
 
+    private fun initHotSales(){
         with(binding.viewPager){
+            hotSalesAdapter = HotSalesAdapter {  }
             adapter = hotSalesAdapter
             offscreenPageLimit = 1
-            addItemDecoration(ItemOffsetDecoration(requireContext()))
+            addItemDecoration(ItemOffsetHotSales(requireContext()))
             setPageTransformer(AnimePageTransformer())
         }
+    }
 
+    private fun initBestSeller(){
         with(binding.itemList){
+            bestSellerAdapter = BestSellerAdapter {  }
             adapter = bestSellerAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
-
+            addItemDecoration(ItemOffsetBestSeller(requireContext()))
         }
     }
 
     private fun observeViewModel() {
         viewModel.uiStateLiveData.observe(viewLifecycleOwner){
-            Log.d("qqq", "${it.categories}")
             categoryAdapter?.items = it.categories
             hotSalesAdapter?.items = it.hotSalesPhones
             bestSellerAdapter?.items = it.bestSellerPhones

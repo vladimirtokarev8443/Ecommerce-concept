@@ -10,8 +10,10 @@ interface RunMockyApi {
     suspend fun getProduct(): Product
 
     @GET("6c14c560-15c6-4248-b9d2-b4508df7d4f5")
-    fun getModelDetails()
+    suspend fun getModelDetails()
 
     @GET("53539a72-3c5f-4f30-bbb1-6ca10d42c149")
-    fun getCart(): Cart
+    suspend fun getCart(): Cart
+
+
 }

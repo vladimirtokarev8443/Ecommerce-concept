@@ -1,6 +1,8 @@
 package com.example.data.repository
 
+import android.util.Log
 import com.example.data.api.RunMockyApi
+import com.example.domain.models.Basket
 import com.example.domain.models.Cart
 import com.example.domain.models.Product
 import com.example.domain.repository.ProductsRepository
@@ -15,4 +17,5 @@ class ProductRepositoryImpl @Inject constructor(
     override suspend fun getDetails() {}
 
     override suspend fun getCart(): Cart = api.getCart()
+
 }

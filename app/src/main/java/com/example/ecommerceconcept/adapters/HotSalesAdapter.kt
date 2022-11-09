@@ -20,12 +20,6 @@ class HotSalesAdapter(
             return when {
                 oldItem is HotSales.Phones && newItem is HotSales.Phones ->
                     oldItem.id == newItem.id
-                oldItem is HotSales.Computer && newItem is HotSales.Computer ->
-                    oldItem.id == newItem.id
-                oldItem is HotSales.Health && newItem is HotSales.Health ->
-                    oldItem.id == newItem.id
-                oldItem is HotSales.Books && newItem is HotSales.Books ->
-                    oldItem.id == newItem.id
                 else -> false
             }
         }

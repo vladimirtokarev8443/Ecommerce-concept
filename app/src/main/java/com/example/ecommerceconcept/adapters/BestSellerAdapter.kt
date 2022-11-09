@@ -18,12 +18,6 @@ class BestSellerAdapter (
             return when {
                 oldItem is BestSeller.Phones && newItem is BestSeller.Phones ->
                     oldItem.id == newItem.id
-                oldItem is BestSeller.Computer && newItem is BestSeller.Computer ->
-                    oldItem.id == newItem.id
-                oldItem is BestSeller.Health && newItem is BestSeller.Health ->
-                    oldItem.id == newItem.id
-                oldItem is BestSeller.Books && newItem is BestSeller.Books ->
-                    oldItem.id == newItem.id
                 else -> false
             }
         }

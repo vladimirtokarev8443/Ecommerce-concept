@@ -2,6 +2,7 @@ package com.example.ecommerceconcept.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -72,6 +73,16 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
             bestSellerAdapter?.items = it.bestSellerPhones
         }
     }
+
+    private fun openFilter(){
+        binding.navigationGroup.isVisible = true
+        binding.filterGroup.isVisible = true
+//        val items = listOf("Material", "Design", "Components", "Android")
+//        val adapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
+//        (textField.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+    }
+
+    private fun closeFilter(){}
 
     override fun onDestroyView() {
         super.onDestroyView()

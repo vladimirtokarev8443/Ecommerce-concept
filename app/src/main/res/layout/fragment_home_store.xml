@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_home_store_scene">
 
+
     <ImageView
         android:id="@+id/locationImageView"
         android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/dropdownMenuImageView"
         android:layout_width="wrap_content"
@@ -49,137 +51,148 @@
         app:layout_constraintTop_toTopOf="@id/locationTextView"
         app:srcCompat="@drawable/ic_filters" />
 
-    <TextView
-        android:id="@+id/categoryTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="20dp"
-        android:text="Select Category"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locationImageView" />
-
-    <TextView
-        android:id="@+id/viewAllTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="37dp"
-        android:text="view all"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/categoryTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/categoryTextView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryList"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryTextView"
-        tools:itemCount="4" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="11dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/floatingActionButton">
-
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search"
-            android:queryBackground="@color/white"
-            android:searchIcon="@drawable/ic_search" />
-    </androidx.cardview.widget.CardView>
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="37dp"
-        app:backgroundTint="?attr/colorPrimary"
-        app:fabSize="mini"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryList"
-        app:srcCompat="@drawable/ic_search_cube"
-        app:tint="?attr/colorOnPrimary" />
+        app:layout_constraintTop_toBottomOf="@+id/locationImageView">
 
-    <TextView
-        android:id="@+id/hotSalesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="24dp"
-        android:text="Hot Sales"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/floatingActionButton" />
+        <TextView
+            android:id="@+id/categoryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="20dp"
+            android:text="Select Category"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="37dp"
-        android:text="see more"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/hotSalesTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hotSalesTextView" />
+        <TextView
+            android:id="@+id/viewAllTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="view all"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/categoryTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/categoryTextView" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="0dp"
-        android:layout_height="199dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hotSalesTextView" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryTextView"
+            tools:itemCount="4" />
 
-    <TextView
-        android:id="@+id/bestSellerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="24dp"
-        android:text="Best Seller"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewPager" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="11dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/floatingActionButton"
+            app:layout_constraintEnd_toStartOf="@id/floatingActionButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/floatingActionButton">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="37dp"
-        android:text="see more"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bestSellerTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bestSellerTextView" />
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search"
+                android:queryBackground="@color/white"
+                android:searchIcon="@drawable/ic_search" />
+        </androidx.cardview.widget.CardView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="37dp"
+            app:backgroundTint="?attr/colorPrimary"
+            app:fabSize="mini"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoryList"
+            app:srcCompat="@drawable/ic_search_cube"
+            app:tint="?attr/colorOnPrimary" />
+
+        <TextView
+            android:id="@+id/hotSalesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="24dp"
+            android:text="Hot Sales"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/floatingActionButton" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="see more"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/hotSalesTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hotSalesTextView" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="199dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hotSalesTextView" />
+
+        <TextView
+            android:id="@+id/bestSellerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="24dp"
+            android:text="Best Seller"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPager" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="see more"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/bestSellerTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bestSellerTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemList"
@@ -189,7 +202,197 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bestSellerTextView" />
+        app:layout_constraintTop_toBottomOf="@id/container" />
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/filterGroup"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="backButton,doneButton,textView3,brandTextView,brandTextImput,priceTextView,priceTextImput,sizeTextView,sizeTextImput"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="37dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="54dp"
+                android:backgroundTint="?attr/colorSecondary"
+                android:foreground="@drawable/ic_arrow_back"
+                android:foregroundGravity="center"
+                app:layout_constraintBottom_toTopOf="@id/brandTextView"
+                app:layout_constraintStart_toStartOf="@id/brandTextView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/doneButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="54dp"
+                android:layout_marginEnd="20dp"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:text="Done"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/brandTextView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter options"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/backButton"
+                app:layout_constraintEnd_toStartOf="@+id/doneButton"
+                app:layout_constraintStart_toEndOf="@+id/backButton"
+                app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+            <TextView
+                android:id="@+id/brandTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brand"
+                android:textSize="18sp"
+                android:textColor="?attr/colorSecondary"
+                app:layout_constraintStart_toStartOf="@id/brandTextImput"
+                app:layout_constraintBottom_toTopOf="@id/brandTextImput"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/brandTextImput"
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="46dp"
+                android:layout_marginEnd="31dp"
+                android:layout_marginBottom="44dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="4.5 to 5.5 inches"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/priceTextImput">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"
+                android:textSize="18sp"
+                android:textColor="?attr/colorSecondary"
+                app:layout_constraintStart_toStartOf="@id/priceTextImput"
+                app:layout_constraintBottom_toTopOf="@id/priceTextImput"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/priceTextImput"
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="46dp"
+                android:layout_marginEnd="31dp"
+                android:layout_marginBottom="44dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="4.5 to 5.5 inches"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/sizeTextImput">
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/sizeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size"
+                android:textSize="18sp"
+                android:textColor="?attr/colorSecondary"
+                app:layout_constraintStart_toStartOf="@id/sizeTextImput"
+                app:layout_constraintBottom_toTopOf="@id/sizeTextImput"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/sizeTextImput"
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="46dp"
+                android:layout_marginEnd="31dp"
+                android:layout_marginBottom="44dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="4.5 to 5.5 inches"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bottomNavigation">
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/exployerButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="60dp"
+                android:text="Exployer"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:icon="@drawable/ellipse_7"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="60dp"
+                android:background="?attr/colorSecondary"
+                app:labelVisibilityMode="unlabeled"
+                app:itemIconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/exployerButton"
+                app:menu="@menu/menu_bottom_navigation" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/navigationGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="bottomNavigation,exployerButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+   
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

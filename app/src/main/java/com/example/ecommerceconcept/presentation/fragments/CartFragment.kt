@@ -9,6 +9,7 @@ import com.example.ecommerceconcept.adapters.CartAdapter
 import com.example.ecommerceconcept.databinding.FragmentCartBinding
 import com.example.ecommerceconcept.presentation.viewmodel.CartViewModel
 import com.example.ecommerceconcept.utils.BaseFragment
+import com.example.ecommerceconcept.utils.ItemOffsetBasket
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,6 +30,7 @@ class CartFragment: BaseFragment<FragmentCartBinding>(FragmentCartBinding::infla
         with(binding.cartList){
             adapter = cartAdapter
             layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(ItemOffsetBasket(requireContext()))
             setHasFixedSize(true)
         }
     }

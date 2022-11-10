@@ -1,12 +1,20 @@
 package com.example.domain.models
 
-sealed class HotSales{
-    data class Phones(
-        val id: Int,
-        val imageUrl: String,
-        val brand: String,
-        val discription: String,
-        val isNew: Boolean = false
-    ): HotSales()
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-}
+
+@JsonClass(generateAdapter = true)
+data class HotSales(
+    val id: Int,
+    @Json(name = "picture")
+    val imageUrl: String,
+    @Json(name = "title")
+    val brand: String,
+    @Json(name = "subtitle")
+    val discription: String,
+    @Json(name = "is_new")
+    val isNew: Boolean = false,
+    @Json(name = "is_buy")
+    val isBuy: Boolean
+)

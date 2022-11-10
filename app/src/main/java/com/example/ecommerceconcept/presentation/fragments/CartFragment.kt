@@ -3,6 +3,7 @@ package com.example.ecommerceconcept.presentation.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.models.Cart
 import com.example.ecommerceconcept.adapters.CartAdapter
@@ -23,6 +24,8 @@ class CartFragment: BaseFragment<FragmentCartBinding>(FragmentCartBinding::infla
         super.onViewCreated(view, savedInstanceState)
         initList()
         observeViewModel()
+
+        binding.backButton.setOnClickListener { findNavController().popBackStack() }
     }
 
     private fun initList(){

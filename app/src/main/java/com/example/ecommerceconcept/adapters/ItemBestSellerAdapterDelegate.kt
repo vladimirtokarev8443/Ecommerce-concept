@@ -6,12 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.BestSeller
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemBestSellerPhoneBinding
+import com.example.ecommerceconcept.models.RecyclerItems
 import com.example.ecommerceconcept.utils.setImageGlide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
-class BestSellerPhoneAdapterDelegate(
+class ItemBestSellerAdapterDelegate(
     private val onItemClicked: (position: Int) -> Unit
-): AbsListItemAdapterDelegate<BestSeller.Phones, BestSeller, BestSellerPhoneAdapterDelegate.PhonesHolder>() {
+): AbsListItemAdapterDelegate<RecyclerItems.Phone, RecyclerItems, ItemBestSellerAdapterDelegate.PhonesHolder>() {
 
 
     override fun isForViewType(
@@ -19,7 +20,7 @@ class BestSellerPhoneAdapterDelegate(
         items: MutableList<BestSeller>,
         position: Int
     ): Boolean {
-        return item is BestSeller.Phones
+        return item is BestSeller
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): PhonesHolder {
@@ -29,7 +30,7 @@ class BestSellerPhoneAdapterDelegate(
     }
 
     override fun onBindViewHolder(
-        item: BestSeller.Phones,
+        item: BestSeller,
         holder: PhonesHolder,
         payloads: MutableList<Any>
     ) {
@@ -40,7 +41,7 @@ class BestSellerPhoneAdapterDelegate(
         val binding: ItemBestSellerPhoneBinding,
         private val onItemClicked: (position: Int) -> Unit
     ): RecyclerView.ViewHolder(binding.root){
-        fun bind(item: BestSeller.Phones){
+        fun bind(item: BestSeller){
             binding.productImageView.setImageGlide(item.imageUrl)
             binding.productTextView.text = item.title
             binding.discountTextView.text = item.priceDiscount.toString()

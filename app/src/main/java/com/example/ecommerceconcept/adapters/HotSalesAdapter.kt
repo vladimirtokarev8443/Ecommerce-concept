@@ -18,7 +18,7 @@ class HotSalesAdapter(
     class HotSalesDiffUtilCallback: DiffUtil.ItemCallback<HotSales>(){
         override fun areItemsTheSame(oldItem: HotSales, newItem: HotSales): Boolean {
             return when {
-                oldItem is HotSales.Phones && newItem is HotSales.Phones ->
+                oldItem is HotSales && newItem is HotSales ->
                     oldItem.id == newItem.id
                 else -> false
             }

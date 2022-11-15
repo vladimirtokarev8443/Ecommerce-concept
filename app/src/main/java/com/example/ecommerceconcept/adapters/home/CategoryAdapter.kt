@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.adapters
+package com.example.ecommerceconcept.adapters.home
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.models.Category

@@ -8,13 +8,19 @@ class ItemOffsetHotSales(private val context: Context): RecyclerView.ItemDecorat
 
     override fun getItemOffsets(outRect: Rect, itemPosition: Int, parent: RecyclerView) {
         val offset = MARGIN.fromDpToPixels(context)
+        val topOffset = MARGIN_TOP.fromDpToPixels(context)
+        val bottomOffset = MARGIN_BOTTOM.fromDpToPixels(context)
         with(outRect){
             left = offset
             right = offset
+            top = topOffset
+            bottom = bottomOffset
         }
     }
 
     companion object{
         private const val MARGIN = 16
+        private const val MARGIN_TOP = 8
+        private const val MARGIN_BOTTOM = 10
     }
 }

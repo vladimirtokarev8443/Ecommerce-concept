@@ -1,4 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="corner_radius_small">10dp</dimen>
+    <dimen name="corner_radius">15dp</dimen>
+    <dimen name="corner_radius_large">25dp</dimen>
+    <dimen name="corner_radius_super_large">40dp</dimen>
+
+
+    <dimen name="padding_zero">0dp</dimen>
+    <dimen name="chip_icon_size">40dp</dimen>
+    <dimen name="square_button_width">37dp</dimen>
+    <dimen name="square_button_height">48dp</dimen>
+
     <dimen name="home_store_margin_start">16dp</dimen>
+
+
+
+    <dimen name="item_category_width_card">70dp</dimen>
+    <dimen name="item_category_height_card">70dp</dimen>
+    <dimen name="item_category_badge_width">30dp</dimen>
+    <dimen name="item_category_badge_height">30dp</dimen>
+    <dimen name="item_category_name_size">12sp</dimen>
+    <dimen name="item_category_name_margin_top">7dp</dimen>
+
+    <dimen name="item_image_card_width">266dp</dimen>
+    <dimen name="item_image_card_height">335dp</dimen>
+
+    <dimen name="item_hot_sales_badge_width">27dp</dimen>
+    <dimen name="item_hot_sales_badge_height">27dp</dimen>
+    <dimen name="item_hot_sales_badge_margin_start">25dp</dimen>
+    <dimen name="item_hot_sales_badge_margin_bottom">18dp</dimen>
+    <dimen name="item_hot_sales_text_size_small">11sp</dimen>
+    <dimen name="item_hot_sales_text_size">25sp</dimen>
+    <dimen name="item_hot_sales_descript_margin_bottom">18dp</dimen>
+    <dimen name="item_hot_sales_button_margin_bottom">18dp</dimen>
+    <dimen name="item_hot_sales_button_width">98dp</dimen>
+    <dimen name="item_hot_sales_button_height">36dp</dimen>
+
+    <dimen name="item_best_seller_height">227dp</dimen>
+    <dimen name="item_best_seller_image_height">168dp</dimen>
+    <dimen name="item_best_seller_text">16sp</dimen>
+    <dimen name="item_best_seller_text_small">11sp</dimen>
+    <dimen name="item_best_seller_discount_margin_start">20dp</dimen>
+    <dimen name="item_best_seller_discount_margin_top">2dp</dimen>
+    <dimen name="item_best_seller_price_margin_start">7dp</dimen>
+    <dimen name="item_best_seller_brand_margi_top">5dp</dimen>
+    <dimen name="item_best_seller_favorites_width">30dp</dimen>
+    <dimen name="item_best_seller_favorites_height">30dp</dimen>
+    <dimen name="item_best_seller_favorites_margin_top">12dp</dimen>
+    <dimen name="item_best_seller_favorites_margin_end">12dp</dimen>
+
+    <dimen name="item_basket_image">88dp</dimen>
+    <dimen name="item_basket_margin_end">17dp</dimen>
+    <dimen name="item_basket_margin_start">17dp</dimen>
+    <dimen name="item_basket_margin_top">14dp</dimen>
+    <dimen name="item_basket_margin_bottom">8dp</dimen>
+    <dimen name="item_basket_count_card_width">26dp</dimen>
+    <dimen name="item_basket_count_card_height">68dp</dimen>
+    <dimen name="item_basket_text_size">20sp</dimen>
+
+    <dimen name="item_auto_complete_text_padding">4dp</dimen>
+    <dimen name="item_auto_complete_text_size">14sp</dimen>
+
+    <dimen name="cart_text_size">20sp</dimen>
+    <dimen name="cart_text_size_large">35sp</dimen>
+    <dimen name="cart_text_size_small">15sp</dimen>
+    <dimen name="cart_back_button_margin_start">42dp</dimen>
+    <dimen name="cart_back_button_margin_top">30dp</dimen>
+    <dimen name="cart_address_text_margin_end">10dp</dimen>
+    <dimen name="cart_location_button_margin_end">42dp</dimen>
+    <dimen name="cart_title_margin_top">42dp</dimen>
+    <dimen name="cart_title_margin_start">42dp</dimen>
+    <dimen name="cart_container_card_margin_top">49dp</dimen>
+    <dimen name="cart_cart_list_margin_top">40dp</dimen>
+    <dimen name="cart_total_result_margin_bottom">12dp</dimen>
+    <dimen name="cart_total_text_margin_start">55dp</dimen>
+    <dimen name="cart_total_text_margin_bottom">12dp</dimen>
+    <dimen name="cart_delivery_result_margin_bottom">26dp</dimen>
+    <dimen name="cart_delivery_margin_start">55dp</dimen>
+    <dimen name="cart_delivery_margin_bottom">26dp</dimen>
+    <dimen name="cart_button_height">66dp</dimen>
+    <dimen name="cart_button_margin_start">44dp</dimen>
+    <dimen name="cart_button_margin_end">44dp</dimen>
+    <dimen name="cart_button_margin_bottom">34dp</dimen>
+    <dimen name="cart_guideline_end">108dp</dimen>
+
+    <dimen name="item_shop_text_size">11sp</dimen>
+
 </resources>

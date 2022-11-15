@@ -2,11 +2,17 @@ package com.example.ecommerceconcept.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ecommerceconcept.adapters.*
+import com.example.ecommerceconcept.R
+import com.example.ecommerceconcept.adapters.home.BestSellerAdapter
+import com.example.ecommerceconcept.adapters.home.CategoryAdapter
+import com.example.ecommerceconcept.adapters.home.HotSalesAdapter
 import com.example.ecommerceconcept.databinding.FragmentHomeStoreBinding
 import com.example.ecommerceconcept.presentation.viewmodel.HomeStoreViewModel
 import com.example.ecommerceconcept.utils.*
@@ -22,9 +28,13 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.bottomNavigation.setupWithNavController(findNavController())
 
         initLists()
         observeViewModel()
+        createBadgeToCart()
+        initFilter()
+        filterListeners()
 
     }
 
@@ -53,13 +63,15 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
             adapter = hotSalesAdapter
             offscreenPageLimit = 1
             addItemDecoration(ItemOffsetHotSales(requireContext()))
-            setPageTransformer(AnimePageTransformer())
+            setPageTransformer(ZoomOutTransformation())
         }
     }
 
     private fun initBestSeller(){
         with(binding.itemList){
-            bestSellerAdapter = BestSellerAdapter {  }
+            bestSellerAdapter = BestSellerAdapter {
+                findNavController().navigate(HOME_TO_DETAILS)
+            }
             adapter = bestSellerAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
             addItemDecoration(ItemOffsetBestSeller(requireContext()))
@@ -74,15 +86,30 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         }
     }
 
-    private fun openFilter(){
-        binding.navigationGroup.isVisible = true
-        binding.filterGroup.isVisible = true
-//        val items = listOf("Material", "Design", "Components", "Android")
-//        val adapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
-//        (textField.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+    private fun initFilter(){
+        val adapterBrand = ArrayAdapter(requireContext(), R.layout.item_auto_complete_text, resources.getStringArray(R.array.brand))
+        (binding.brandTextImput.editText as? AutoCompleteTextView)?.setAdapter(adapterBrand)
+
+        val adapterPrice = ArrayAdapter(requireContext(), R.layout.item_auto_complete_text, resources.getStringArray(R.array.price))
+        (binding.priceTextImput.editText as? AutoCompleteTextView)?.setAdapter(adapterPrice)
+
     }
 
-    private fun closeFilter(){}
+    private fun filterListeners(){
+        binding.toolbar.setOnMenuItemClickListener {
+            binding.bottomContainer.transitionToEnd()
+            true
+        }
+        binding.closeButton.setOnClickListener {
+            binding.bottomContainer.transitionToStart()
+        }
+    }
+
+    private fun createBadgeToCart(){
+        binding.bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
+            number = 2
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -91,6 +118,5 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         bestSellerAdapter = null
 
     }
-
 
 }

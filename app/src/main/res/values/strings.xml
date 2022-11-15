@@ -1,6 +1,44 @@
 <resources>
     <string name="app_name">Ecommerce Concept</string>
+
     <string name="menu_item_cart">Cart</string>
     <string name="menu_item_favorites">Favorites</string>
     <string name="menu_item_profile">Profile</string>
+
+    <string name="details_tab_shop">Shop</string>
+    <string name="details_tab_details">Details</string>
+    <string name="details_tab_feature">Features</string>
+    <string name="details_text_button">Add to Cart</string>
+    <string name="details_header_text">Product Details</string>
+
+    <string name="price_with_usd">$%1$d</string>
+    <string name="price_string_with_usd">$%1$s</string>
+
+    <string name="item_basket_count_product">1</string>
+
+    <string name="cart_default_address_text">Add address</string>
+    <string name="cart_header_text">My Cart</string>
+    <string name="cart_button_text">Checkout</string>
+    <string name="cart_delivery_text">Delivery</string>
+    <string name="cart_total_text">Total</string>
+    <string name="cart_total_result">$%1$d us</string>
+
+    <string name="item_shop_selector_text">Select color and capacity</string>
+
+    <string name="item_hot_sales_button_text">Buy now!</string>
+    <string name="item_hot_sales_badge_text">New</string>
+
+    <string name="home_store_location">Country, City</string>
+    <string name="home_store_select_category">Select Category</string>
+    <string name="home_store_view_all">view all</string>
+    <string name="home_store_hot_sales">Hot Sales</string>
+    <string name="home_store_see_more">see more</string>
+    <string name="home_store_best_seller">Best Seller</string>
+    <string name="home_store_exployer">Exployer</string>
+    <string name="home_store_filter_done">Done</string>
+    <string name="home_store_filter_options">Filter options</string>
+    <string name="home_store_filter_brand">Brand</string>
+    <string name="home_store_filter_price">Price</string>
+    <string name="home_store_filter_size">Size</string>
+
 </resources>

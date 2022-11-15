@@ -33,16 +33,12 @@ class HomeStoreViewModel @Inject constructor(
 
     fun getPhones(){
         viewModelScope.launch {
-            //val product = getPhonesUseCase.execute()
-//            uiStateMutLiveData.value?.apply {
-//                hotSalesPhones = product.hotSales
-//                bestSellerPhones = product.bestSeller
-//            }
-//            val ui = uiStateMutLiveData.value?.copy(
-//                hotSalesPhones = product.hotSales,
-//                bestSellerPhones = product.bestSeller
-//            )
-//            ui?.let{ uiStateMutLiveData.postValue(it) }
+           val product = getPhonesUseCase.execute()
+            val ui = uiStateMutLiveData.value?.copy(
+                hotSalesPhones = product.hotSales,
+                bestSellerPhones = product.bestSeller
+            )
+            ui?.let{ uiStateMutLiveData.postValue(it) }
         }
     }
 

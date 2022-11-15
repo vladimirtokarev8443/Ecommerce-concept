@@ -3,10 +3,12 @@ package com.example.ecommerceconcept.presentation.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.ActivityNavigator
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.models.Cart
-import com.example.ecommerceconcept.adapters.CartAdapter
+import com.example.ecommerceconcept.R
+import com.example.ecommerceconcept.adapters.cart.CartAdapter
 import com.example.ecommerceconcept.databinding.FragmentCartBinding
 import com.example.ecommerceconcept.presentation.viewmodel.CartViewModel
 import com.example.ecommerceconcept.utils.BaseFragment
@@ -25,7 +27,9 @@ class CartFragment: BaseFragment<FragmentCartBinding>(FragmentCartBinding::infla
         initList()
         observeViewModel()
 
-        binding.backButton.setOnClickListener { findNavController().popBackStack() }
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun initList(){
@@ -44,8 +48,8 @@ class CartFragment: BaseFragment<FragmentCartBinding>(FragmentCartBinding::infla
 
     private fun bindCart(cart: Cart){
         cartAdapter?.items = cart.basketList
-        binding.totalResultTextView.text = cart.total.toString()
-        binding.deliveryTextView.text = cart.delivery
+        binding.totalResultTextView.text = getString(R.string.cart_total_result, cart.total)
+        binding.deliveryResultTextView.text = cart.delivery
     }
 
     override fun onDestroyView() {

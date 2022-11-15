@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/selectTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/item_shop_selector_text"
+        android:textColor="?attr/colorSecondary"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpuTextView" />
+
+    <HorizontalScrollView
+        android:id="@+id/colorScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/volumeScrollView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectTitleTextView">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/colorChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleLine="true"
+            app:selectionRequired="true"
+            app:singleSelection="true"/>
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/volumeScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/colorScrollView"
+        app:layout_constraintTop_toTopOf="@+id/colorScrollView">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/volumeChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="20dp"
+            app:singleLine="true"
+            app:singleSelection="true"/>
+
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/cpuImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/cameraImageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cpu" />
+
+    <ImageView
+        android:id="@+id/cameraImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cpuImageView"
+        app:layout_constraintEnd_toStartOf="@+id/ssdImageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cpuImageView"
+        app:layout_constraintTop_toTopOf="@+id/cpuImageView"
+        app:srcCompat="@drawable/ic_camera" />
+
+    <ImageView
+        android:id="@+id/ssdImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cpuImageView"
+        app:layout_constraintEnd_toStartOf="@+id/sdImageView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cameraImageView"
+        app:layout_constraintTop_toTopOf="@+id/cpuImageView"
+        app:srcCompat="@drawable/ic_ssd" />
+
+    <ImageView
+        android:id="@+id/sdImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cpuImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ssdImageView"
+        app:layout_constraintTop_toTopOf="@+id/cpuImageView"
+        app:srcCompat="@drawable/ic_sd" />
+
+    <TextView
+        android:id="@+id/cpuTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        tools:text="TextView"
+        android:textSize="@dimen/item_shop_text_size"
+        app:layout_constraintEnd_toEndOf="@+id/cpuImageView"
+        app:layout_constraintStart_toStartOf="@+id/cpuImageView"
+        app:layout_constraintTop_toBottomOf="@+id/cpuImageView" />
+
+    <TextView
+        android:id="@+id/cameraTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="TextView"
+        android:textSize="@dimen/item_shop_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/cpuTextView"
+        app:layout_constraintEnd_toEndOf="@+id/cameraImageView"
+        app:layout_constraintStart_toStartOf="@+id/cameraImageView" />
+
+    <TextView
+        android:id="@+id/ssdTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="TextView"
+        android:textSize="@dimen/item_shop_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/cpuTextView"
+        app:layout_constraintEnd_toEndOf="@+id/ssdImageView"
+        app:layout_constraintStart_toStartOf="@+id/ssdImageView" />
+
+    <TextView
+        android:id="@+id/sdTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="TextView"
+        android:textSize="@dimen/item_shop_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/cpuTextView"
+        app:layout_constraintEnd_toEndOf="@+id/sdImageView"
+        app:layout_constraintStart_toStartOf="@+id/sdImageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

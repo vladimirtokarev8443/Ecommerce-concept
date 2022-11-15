@@ -2,9 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="227dp"
+    android:layout_height="@dimen/item_best_seller_height"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="@dimen/corner_radius_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/productImageView"
             android:layout_width="match_parent"
-            android:layout_height="168dp"
+            android:layout_height="@dimen/item_best_seller_image_height"
             tools:srcCompat="@tools:sample/backgrounds/scenic"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,10 +24,10 @@
             android:id="@+id/discountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="16sp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="2dp"
+            android:textSize="@dimen/item_best_seller_text"
+            android:textColor="?attr/colorSecondary"
+            android:layout_marginStart="@dimen/item_best_seller_discount_margin_start"
+            android:layout_marginTop="@dimen/item_best_seller_discount_margin_top"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/productImageView" />
 
@@ -35,38 +35,39 @@
             android:id="@+id/priceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:text="TextView"
-            android:textSize="10sp"
+            android:layout_marginStart="@dimen/item_best_seller_price_margin_start"
+            android:textColor="@color/text_crossed_out_color"
+            android:textSize="@dimen/item_best_seller_text_small"
             app:layout_constraintBottom_toBottomOf="@+id/discountTextView"
             app:layout_constraintStart_toEndOf="@+id/discountTextView" />
 
         <TextView
-            android:id="@+id/productTextView"
+            android:id="@+id/brandTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="10sp"
-            android:layout_marginTop="5dp"
+            android:textColor="?attr/colorSecondary"
+            tools:text="TextView"
+            android:textSize="@dimen/item_best_seller_text_small"
+            android:layout_marginTop="@dimen/item_best_seller_brand_margi_top"
             app:layout_constraintStart_toStartOf="@+id/discountTextView"
             app:layout_constraintTop_toBottomOf="@+id/discountTextView" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="12dp"
-            app:cardCornerRadius="13dp"
-            app:cardElevation="2dp"
+            android:id="@+id/favoritesCard"
+            android:layout_width="@dimen/item_best_seller_favorites_width"
+            android:layout_height="@dimen/item_best_seller_favorites_height"
+            android:layout_marginTop="@dimen/item_best_seller_favorites_margin_top"
+            android:layout_marginEnd="@dimen/item_best_seller_favorites_margin_end"
+            app:cardCornerRadius="@dimen/corner_radius"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/favoritesImageView"
-                android:layout_width="11dp"
-                android:layout_height="10dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_favorites"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|center_vertical"
+                app:srcCompat="@drawable/ic_favorites" />
 
         </androidx.cardview.widget.CardView>
 

@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.adapters
+package com.example.ecommerceconcept.adapters.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -41,8 +41,8 @@ class CategoryAdapterDelegate(
             binding.categoryNameTextView.text = item.title
 
             if (item.isClick){
-                binding.cardView.setCardBackgroundColor(itemView.context.getColor(R.color.purple_500))
-                binding.categoryNameTextView.setTextColor(itemView.context.getColor(R.color.purple_500))
+                binding.cardView.setCardBackgroundColor(itemView.context.getColor(R.color.orange))
+                binding.categoryNameTextView.setTextColor(itemView.context.getColor(R.color.orange))
                 binding.badgeImageView.setColorFilter(itemView.context.getColor(R.color.white))
             } else {
                 binding.cardView.setCardBackgroundColor(itemView.context.getColor(R.color.white))

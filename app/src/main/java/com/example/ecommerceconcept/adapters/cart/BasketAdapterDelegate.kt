@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.adapters
+package com.example.ecommerceconcept.adapters.cart
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

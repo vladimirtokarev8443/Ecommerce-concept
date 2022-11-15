@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.adapters
+package com.example.ecommerceconcept.adapters.cart
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.models.Basket

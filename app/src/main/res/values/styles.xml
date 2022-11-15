@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.EcommerceConcept.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.MaterialButton</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.MaterialButton" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">36dp</item>
+        <item name="cornerSizeTopLeft">36dp</item>
+    </style>
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="MyRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@android:color/holo_orange_dark</item>
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+    </style>
+
+</resources>

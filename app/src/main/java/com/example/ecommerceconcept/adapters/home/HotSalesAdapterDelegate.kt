@@ -1,17 +1,17 @@
-package com.example.ecommerceconcept.adapters
+package com.example.ecommerceconcept.adapters.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.HotSales
-import com.example.ecommerceconcept.databinding.ItemHotSalesPhoneBinding
+import com.example.ecommerceconcept.databinding.ItemHotSalesBinding
 import com.example.ecommerceconcept.utils.setImageGlide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
-class HotSalesPhoneAdapterDelegate(
+class HotSalesAdapterDelegate(
     private val onItemClicked: (position: Int) -> Unit
-) : AbsListItemAdapterDelegate<HotSales.Phones, HotSales, HotSalesPhoneAdapterDelegate.PhonesHolder>(){
+) : AbsListItemAdapterDelegate<HotSales, HotSales, HotSalesAdapterDelegate.PhonesHolder>(){
 
 
     override fun isForViewType(
@@ -19,17 +19,17 @@ class HotSalesPhoneAdapterDelegate(
         items: MutableList<HotSales>,
         position: Int
     ): Boolean {
-        return item is HotSales.Phones
+        return true
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): PhonesHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemHotSalesPhoneBinding.inflate(inflater, parent, false)
+        val binding = ItemHotSalesBinding.inflate(inflater, parent, false)
         return PhonesHolder(binding, onItemClicked)
     }
 
     override fun onBindViewHolder(
-        item: HotSales.Phones,
+        item: HotSales,
         holder: PhonesHolder,
         payloads: MutableList<Any>
     ) {
@@ -37,10 +37,10 @@ class HotSalesPhoneAdapterDelegate(
     }
 
     class PhonesHolder(
-        val binding: ItemHotSalesPhoneBinding,
+        val binding: ItemHotSalesBinding,
         private val onItemClicked: (position: Int) -> Unit
     ): RecyclerView.ViewHolder(binding.root){
-        fun bind(item: HotSales.Phones)= with(binding) {
+        fun bind(item: HotSales)= with(binding) {
             badgeImageView.isVisible = item.isNew
             badgeTextView.isVisible = item.isNew
             productImageView.setImageGlide(url = item.imageUrl)

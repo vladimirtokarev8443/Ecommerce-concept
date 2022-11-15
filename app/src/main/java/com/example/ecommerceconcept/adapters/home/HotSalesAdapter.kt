@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.adapters
+package com.example.ecommerceconcept.adapters.home
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.models.HotSales
@@ -9,19 +9,13 @@ class HotSalesAdapter(
 ): AsyncListDifferDelegationAdapter<HotSales>(HotSalesDiffUtilCallback()) {
 
     init{
-        delegatesManager.addDelegate(HotSalesPhoneAdapterDelegate(onItemClicked))
-
+        delegatesManager.addDelegate(HotSalesAdapterDelegate(onItemClicked))
     }
-
 
 
     class HotSalesDiffUtilCallback: DiffUtil.ItemCallback<HotSales>(){
         override fun areItemsTheSame(oldItem: HotSales, newItem: HotSales): Boolean {
-            return when {
-                oldItem is HotSales && newItem is HotSales ->
-                    oldItem.id == newItem.id
-                else -> false
-            }
+            return oldItem.id == newItem.id
         }
         override fun areContentsTheSame(oldItem: HotSales, newItem: HotSales): Boolean {
             return oldItem == newItem

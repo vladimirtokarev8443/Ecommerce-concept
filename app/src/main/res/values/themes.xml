@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.EcommerceConcept" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -18,23 +18,9 @@
 
         <item name="materialButtonStyle">@style/Theme.EcommerceConcept.Button</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
-
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
     </style>
 
-    <style name="Theme.EcommerceConcept.Button" parent="@style/Widget.MaterialComponents.Button">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.MaterialButton</item>
-    </style>
-
-    <style name="ShapeAppearanceOverlay.MyApp.MaterialButton" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">10dp</item>
-    </style>
-
-    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopRight">36dp</item>
-        <item name="cornerSizeTopLeft">36dp</item>
-    </style>
 </resources>
 
 

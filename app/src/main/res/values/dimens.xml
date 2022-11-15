@@ -22,8 +22,8 @@
     <dimen name="item_category_name_size">12sp</dimen>
     <dimen name="item_category_name_margin_top">7dp</dimen>
 
-    <dimen name="item_image_card_width">266dp</dimen>
-    <dimen name="item_image_card_height">335dp</dimen>
+    <dimen name="item_image_card_width">240dp</dimen>
+    <dimen name="item_image_card_height">305dp</dimen>
 
     <dimen name="item_hot_sales_badge_width">27dp</dimen>
     <dimen name="item_hot_sales_badge_height">27dp</dimen>

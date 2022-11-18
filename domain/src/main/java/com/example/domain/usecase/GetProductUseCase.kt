@@ -4,7 +4,7 @@ import com.example.domain.models.Product
 import com.example.domain.repository.ProductsRepository
 import javax.inject.Inject
 
-class GetPhonesUseCase @Inject constructor(
+class GetProductUseCase @Inject constructor(
     private val productsRepository: ProductsRepository
 ) {
     suspend fun execute(): Product = productsRepository.getProducts()

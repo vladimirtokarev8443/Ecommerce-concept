@@ -11,7 +11,7 @@
        </KeyFrameSet>
         <OnSwipe
             motion:dragDirection="dragUp"
-            motion:touchAnchorId="@+id/itemList"
+            motion:touchAnchorId="@+id/bestSellerRecycler"
             motion:moveWhenScrollAtTop="true"/>
     </Transition>
 

@@ -1,31 +1,30 @@
 package com.example.ecommerceconcept.adapters.cart
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.Basket
 import com.example.ecommerceconcept.databinding.ItemBasketBinding
 import com.example.ecommerceconcept.utils.setImageGlide
+import com.example.ecommerceconcept.utils.viewBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
 class BasketAdapterDelegate :
-    AbsListItemAdapterDelegate<Basket, Basket, BasketAdapterDelegate.BasketHolder>(){
+    AbsListItemAdapterDelegate<Basket, Basket, BasketAdapterDelegate.BasketHolder>() {
 
-    override fun isForViewType(item: Basket, items: MutableList<Basket>, position: Int): Boolean = true
+    override fun isForViewType(item: Basket, items: MutableList<Basket>, position: Int): Boolean =
+        true
 
     override fun onCreateViewHolder(parent: ViewGroup): BasketHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemBasketBinding.inflate(inflater, parent, false)
-        return BasketHolder(binding)
+        return BasketHolder(parent.viewBinding(ItemBasketBinding::inflate))
     }
 
     override fun onBindViewHolder(item: Basket, holder: BasketHolder, payloads: MutableList<Any>) {
         holder.bind(item)
     }
 
-    class BasketHolder(val binding: ItemBasketBinding): RecyclerView.ViewHolder(binding.root){
+    class BasketHolder(val binding: ItemBasketBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Basket){
+        fun bind(item: Basket) {
             binding.productImageView.setImageGlide(item.imageUrl)
             binding.titleTextView.text = item.title
             binding.priceTextView.text = item.price.toString()
@@ -39,9 +38,7 @@ class BasketAdapterDelegate :
                 count += 1
                 binding.countTextView.text = count.toString()
             }
-            binding.deleteImageView.setOnClickListener {
-
-            }
+            binding.deleteImageView.setOnClickListener { }
         }
     }
 }

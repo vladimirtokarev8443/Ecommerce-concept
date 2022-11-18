@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.domain.models.DetailsProduct
 import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.adapters.details.DetailsAdapter
+import com.example.ecommerceconcept.adapters.details.DetailsProductAdapter
 import com.example.ecommerceconcept.adapters.details.ImageAdapter
 import com.example.ecommerceconcept.databinding.FragmentDetailsBinding
 import com.example.ecommerceconcept.presentation.viewmodel.DetailsViewModel
@@ -20,11 +20,11 @@ import com.mig35.carousellayoutmanager.CenterScrollListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailsFragment: BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
+class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBinding::inflate) {
 
     private val viewModel: DetailsViewModel by viewModels()
     private var imageAdapter: ImageAdapter? = null
-    private var detailsAdapter: DetailsAdapter? = null
+    private var detailsProductAdapter: DetailsProductAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,9 +42,9 @@ class DetailsFragment: BaseFragment<FragmentDetailsBinding>(FragmentDetailsBindi
 
     }
 
-    private fun initImageList(){
+    private fun initImageList() {
         imageAdapter = ImageAdapter()
-        with(binding.imageRecycler){
+        with(binding.imageRecycler) {
             adapter = imageAdapter
             layoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true).apply {
                 setPostLayoutListener(CarouselZoomPostLayoutListener(0.7f))
@@ -55,21 +55,24 @@ class DetailsFragment: BaseFragment<FragmentDetailsBinding>(FragmentDetailsBindi
         }
     }
 
-    private fun initDetailsViewPager(){
-        detailsAdapter = DetailsAdapter()
-        with(binding.detailsViewPager){
-            adapter = detailsAdapter
+    private fun initDetailsViewPager() {
+        detailsProductAdapter = DetailsProductAdapter()
+        with(binding.detailsViewPager) {
+            adapter = detailsProductAdapter
             offscreenPageLimit = 1
         }
 
     }
 
-    private fun observeViewModel(){
-        viewModel.detailsLiveData.observe(viewLifecycleOwner){
+    private fun observeViewModel() {
+        viewModel.detailsLiveData.observe(viewLifecycleOwner) {
             binding.titleTextView.text = it.title
             binding.ratingBar.rating = it.rating
             binding.priceTextView.text = getString(R.string.price_string_with_usd, it.price)
-            binding.favoritesButton.foregroundTintList = resources.getColorStateList(if (it.isFavorites) R.color.orange else R.color.white, null)
+            binding.favoritesButton.foregroundTintList = resources.getColorStateList(
+                if (it.isFavorites) R.color.orange else R.color.white,
+                null
+            )
 
             imageAdapter?.updateItems(it.images)
 
@@ -77,15 +80,15 @@ class DetailsFragment: BaseFragment<FragmentDetailsBinding>(FragmentDetailsBindi
         }
     }
 
-    private fun setItemsDetailsAdapter(it: DetailsProduct){
-        detailsAdapter?.items = listOf(it.getShop(0), it.getShop(1), it.getShop(2))
+    private fun setItemsDetailsAdapter(it: DetailsProduct) {
+        detailsProductAdapter?.items = listOf(it.getShop(0), it.getShop(1), it.getShop(2))
         initTabs()
     }
 
-    private fun initTabs(){
-        TabLayoutMediator(binding.tabLayout, binding.detailsViewPager){tab, position ->
+    private fun initTabs() {
+        TabLayoutMediator(binding.tabLayout, binding.detailsViewPager) { tab, position ->
 
-            tab.text = when(position){
+            tab.text = when (position) {
                 0 -> getString(R.string.details_tab_shop)
                 1 -> getString(R.string.details_tab_details)
                 else -> getString(R.string.details_tab_feature)
@@ -96,6 +99,6 @@ class DetailsFragment: BaseFragment<FragmentDetailsBinding>(FragmentDetailsBindi
     override fun onDestroyView() {
         super.onDestroyView()
         imageAdapter = null
-        detailsAdapter = null
+        detailsProductAdapter = null
     }
 }

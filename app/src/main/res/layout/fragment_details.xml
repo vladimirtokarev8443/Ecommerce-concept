@@ -48,13 +48,13 @@
         android:layout_height="0dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintBottom_toTopOf="@+id/containerDetailsCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
+        android:id="@+id/containerDetailsCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardElevation="10dp"
@@ -73,7 +73,7 @@
                 android:layout_height="@dimen/square_button_height"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="?attr/colorSecondary"
-                android:foreground="@drawable/ic_favorite"
+                android:foreground="@drawable/ic_favorites_details"
                 android:foregroundGravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/titleTextView" />

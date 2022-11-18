@@ -33,9 +33,9 @@
             android:id="@+id/colorChipGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:singleLine="true"
             app:selectionRequired="true"
-            app:singleSelection="true"/>
+            app:singleLine="true"
+            app:singleSelection="true" />
 
     </HorizontalScrollView>
 
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             app:chipSpacingHorizontal="20dp"
             app:singleLine="true"
-            app:singleSelection="true"/>
+            app:singleSelection="true" />
 
     </HorizontalScrollView>
 
@@ -68,7 +68,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cpu" />
+        app:srcCompat="@drawable/ic_shop_cpu" />
 
     <ImageView
         android:id="@+id/cameraImageView"
@@ -80,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cpuImageView"
         app:layout_constraintTop_toTopOf="@+id/cpuImageView"
-        app:srcCompat="@drawable/ic_camera" />
+        app:srcCompat="@drawable/ic_shop_camera" />
 
     <ImageView
         android:id="@+id/ssdImageView"
@@ -92,7 +92,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cameraImageView"
         app:layout_constraintTop_toTopOf="@+id/cpuImageView"
-        app:srcCompat="@drawable/ic_ssd" />
+        app:srcCompat="@drawable/ic_shop_ssd" />
 
     <ImageView
         android:id="@+id/sdImageView"
@@ -104,47 +104,47 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ssdImageView"
         app:layout_constraintTop_toTopOf="@+id/cpuImageView"
-        app:srcCompat="@drawable/ic_sd" />
+        app:srcCompat="@drawable/ic_shop_sd" />
 
     <TextView
         android:id="@+id/cpuTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        tools:text="TextView"
         android:textSize="@dimen/item_shop_text_size"
         app:layout_constraintEnd_toEndOf="@+id/cpuImageView"
         app:layout_constraintStart_toStartOf="@+id/cpuImageView"
-        app:layout_constraintTop_toBottomOf="@+id/cpuImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/cpuImageView"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/cameraTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="TextView"
         android:textSize="@dimen/item_shop_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/cpuTextView"
         app:layout_constraintEnd_toEndOf="@+id/cameraImageView"
-        app:layout_constraintStart_toStartOf="@+id/cameraImageView" />
+        app:layout_constraintStart_toStartOf="@+id/cameraImageView"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/ssdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="TextView"
         android:textSize="@dimen/item_shop_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/cpuTextView"
         app:layout_constraintEnd_toEndOf="@+id/ssdImageView"
-        app:layout_constraintStart_toStartOf="@+id/ssdImageView" />
+        app:layout_constraintStart_toStartOf="@+id/ssdImageView"
+        tools:text="TextView" />
 
     <TextView
         android:id="@+id/sdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="TextView"
         android:textSize="@dimen/item_shop_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/cpuTextView"
         app:layout_constraintEnd_toEndOf="@+id/sdImageView"
-        app:layout_constraintStart_toStartOf="@+id/sdImageView" />
+        app:layout_constraintStart_toStartOf="@+id/sdImageView"
+        tools:text="TextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

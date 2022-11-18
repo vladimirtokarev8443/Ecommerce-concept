@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.models.Basket
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
-class CartAdapter :
+class BasketAdapter :
     AsyncListDifferDelegationAdapter<Basket>(BasketDiffUtilCallback()) {
 
     init {

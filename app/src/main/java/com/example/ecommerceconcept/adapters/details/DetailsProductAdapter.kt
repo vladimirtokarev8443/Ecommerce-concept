@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.ecommerceconcept.models.DetailsSealed
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
-class DetailsAdapter:
+class DetailsProductAdapter :
     AsyncListDifferDelegationAdapter<DetailsSealed>(DetailsSealedDiffUtilCallback()) {
 
     init {

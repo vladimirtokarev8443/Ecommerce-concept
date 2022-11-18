@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/background"
-        app:menu="@menu/menu_filter"
+        app:menu="@menu/menu_toolbar_filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/dropdownMenuImageVie"
+                android:id="@+id/dropdownMenuImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -95,7 +95,7 @@
             app:layout_constraintTop_toTopOf="@id/categoryTextView" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categoryList"
+            android:id="@+id/categoryRecycler"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -105,16 +105,16 @@
             tools:itemCount="4" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView2"
+            android:id="@+id/containerSearchView"
             android:layout_width="0dp"
             android:layout_height="36dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="11dp"
             app:cardCornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/floatingActionButton"
-            app:layout_constraintEnd_toStartOf="@id/floatingActionButton"
+            app:layout_constraintBottom_toBottomOf="@id/searchFab"
+            app:layout_constraintEnd_toStartOf="@id/searchFab"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/floatingActionButton">
+            app:layout_constraintTop_toTopOf="@id/searchFab">
 
             <SearchView
                 android:id="@+id/searchView"
@@ -128,7 +128,7 @@
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/searchFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -136,7 +136,7 @@
             app:backgroundTint="?attr/colorPrimary"
             app:fabSize="mini"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categoryList"
+            app:layout_constraintTop_toBottomOf="@id/categoryRecycler"
             app:srcCompat="@drawable/ic_search_cube"
             app:tint="?attr/colorOnPrimary" />
 
@@ -151,10 +151,10 @@
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/floatingActionButton" />
+            app:layout_constraintTop_toBottomOf="@id/searchFab" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/hotSalesSeeMoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="37dp"
@@ -167,7 +167,7 @@
             app:layout_constraintTop_toTopOf="@id/hotSalesTextView" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager"
+            android:id="@+id/hotSalesViewPager"
             android:layout_width="0dp"
             android:layout_height="199dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -185,10 +185,10 @@
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/viewPager" />
+            app:layout_constraintTop_toBottomOf="@id/hotSalesViewPager" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/bestSellerSeeMoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="37dp"
@@ -203,7 +203,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemList"
+        android:id="@+id/bestSellerRecycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="17dp"
@@ -213,7 +213,7 @@
         app:layout_constraintTop_toBottomOf="@id/headerContainer" />
 
     <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/bottomContainer"
+        android:id="@+id/bottomMotionContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layoutDescription="@xml/bottom_container_scene"
@@ -222,7 +222,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/bottomNavCard"
+            android:id="@+id/bottomNavContainerCard"
             android:layout_width="0dp"
             android:layout_height="72dp"
             app:cardBackgroundColor="?attr/colorSecondary"
@@ -243,13 +243,13 @@
                     android:text="@string/home_store_exployer"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    app:icon="@drawable/ellipse_7"
+                    app:icon="@drawable/ic_ellipse_button"
                     app:iconTint="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bottomNavigation"
+                    android:id="@+id/bottomNavigationView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:paddingStart="30dp"
@@ -267,7 +267,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/filterCard"
+            android:id="@+id/filterContainerCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -289,8 +289,8 @@
                     android:backgroundTint="?attr/colorSecondary"
                     android:foreground="@drawable/ic_close"
                     android:foregroundGravity="center"
-                    app:layout_constraintBottom_toTopOf="@id/brandTextView"
-                    app:layout_constraintStart_toStartOf="@id/brandTextView"
+                    app:layout_constraintBottom_toTopOf="@id/brandLableTextView"
+                    app:layout_constraintStart_toStartOf="@id/brandLableTextView"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
@@ -303,7 +303,7 @@
                     android:text="@string/home_store_filter_done"
                     android:textAllCaps="false"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toTopOf="@id/brandTextView"
+                    app:layout_constraintBottom_toTopOf="@id/brandLableTextView"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
@@ -320,7 +320,7 @@
                     app:layout_constraintTop_toTopOf="@+id/closeButton" />
 
                 <TextView
-                    android:id="@+id/brandTextView"
+                    android:id="@+id/brandLableTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/home_store_filter_brand"
@@ -351,7 +351,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    android:id="@+id/priceTextView"
+                    android:id="@+id/priceLableTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/home_store_filter_price"
@@ -382,7 +382,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    android:id="@+id/sizeTextView"
+                    android:id="@+id/sizeLableTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/home_store_filter_size"

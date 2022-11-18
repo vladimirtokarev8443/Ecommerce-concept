@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardCornerRadius="@dimen/corner_radius_small"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardCornerRadius="@dimen/corner_radius_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -50,34 +50,34 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginBottom="5dp"
-            tools:text="TextView"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/item_hot_sales_text_size"
             app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/item_hot_sales_descript_margin_bottom"
-            tools:text="TextView"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/item_hot_sales_text_size_small"
             app:layout_constraintBottom_toTopOf="@+id/buyNowButton"
-            app:layout_constraintStart_toStartOf="@+id/brandTextView" />
+            app:layout_constraintStart_toStartOf="@+id/brandTextView"
+            tools:text="TextView" />
 
         <Button
             android:id="@+id/buyNowButton"
             android:layout_width="@dimen/item_hot_sales_button_width"
             android:layout_height="@dimen/item_hot_sales_button_height"
-            android:foreground="?attr/selectableItemBackground"
-            app:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="@string/item_hot_sales_button_text"
-            android:textSize="@dimen/item_hot_sales_text_size_small"
-            android:textAllCaps="false"
             android:layout_marginBottom="@dimen/item_hot_sales_button_margin_bottom"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/item_hot_sales_button_text"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/item_hot_sales_text_size_small"
+            app:backgroundTint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/descriptionTextView" />
 

@@ -65,7 +65,7 @@
     <dimen name="cart_text_size_large">35sp</dimen>
     <dimen name="cart_text_size_small">15sp</dimen>
     <dimen name="cart_back_button_margin_start">42dp</dimen>
-    <dimen name="cart_back_button_margin_top">30dp</dimen>
+    <dimen name="cart_back_button_margin_top">20dp</dimen>
     <dimen name="cart_address_text_margin_end">10dp</dimen>
     <dimen name="cart_location_button_margin_end">42dp</dimen>
     <dimen name="cart_title_margin_top">42dp</dimen>
@@ -83,7 +83,10 @@
     <dimen name="cart_button_margin_end">44dp</dimen>
     <dimen name="cart_button_margin_bottom">34dp</dimen>
     <dimen name="cart_guideline_end">108dp</dimen>
+    <dimen name="cart_divider_top_margin_bottom">15dp</dimen>
+    <dimen name="cart_divider_bottom_margin_bottom">21dp</dimen>
 
     <dimen name="item_shop_text_size">11sp</dimen>
+
 
 </resources>

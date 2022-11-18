@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CartViewModel @Inject constructor(
     private val getCartUseCase: GetCartUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val cartMutLiveData = MutableLiveData<Cart>()
     val cartLiveData: LiveData<Cart> get() = cartMutLiveData
@@ -22,11 +22,12 @@ class CartViewModel @Inject constructor(
         getCart()
     }
 
-    private fun getCart(){
+    private fun getCart() {
         viewModelScope.launch {
             try {
                 cartMutLiveData.postValue(getCartUseCase.execute())
-            }catch (e: Exception){}
+            } catch (e: Exception) {
+            }
         }
     }
 

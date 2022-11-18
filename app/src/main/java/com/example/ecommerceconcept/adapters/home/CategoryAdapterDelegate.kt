@@ -1,25 +1,27 @@
 package com.example.ecommerceconcept.adapters.home
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.Category
 import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.databinding.ItemSelectCategoryBinding
+import com.example.ecommerceconcept.databinding.ItemCategoryBinding
+import com.example.ecommerceconcept.utils.viewBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
 class CategoryAdapterDelegate(
     private val onItemClicked: (position: Int) -> Unit
 ) : AbsListItemAdapterDelegate<Category, Category, CategoryAdapterDelegate.CategoryHolder>() {
 
-    override fun isForViewType(item: Category, items: MutableList<Category>, position: Int): Boolean {
+    override fun isForViewType(
+        item: Category,
+        items: MutableList<Category>,
+        position: Int
+    ): Boolean {
         return true
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): CategoryHolder {
-        val inflater =  LayoutInflater.from(parent.context)
-        val binding = ItemSelectCategoryBinding.inflate(inflater, parent, false)
-        return CategoryHolder(binding, onItemClicked)
+        return CategoryHolder(parent.viewBinding(ItemCategoryBinding::inflate), onItemClicked)
     }
 
     override fun onBindViewHolder(
@@ -31,23 +33,23 @@ class CategoryAdapterDelegate(
     }
 
     class CategoryHolder(
-        val binding: ItemSelectCategoryBinding,
+        val binding: ItemCategoryBinding,
         private val onItemClicked: (position: Int) -> Unit
-    ): RecyclerView.ViewHolder(binding.root){
+    ) : RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bind(item: Category){
-            binding.badgeImageView.setImageResource(item.badgeImage)
+        fun bind(item: Category) {
+            binding.categoryIconImageView.setImageResource(item.iconRes)
             binding.categoryNameTextView.text = item.title
 
-            if (item.isClick){
-                binding.cardView.setCardBackgroundColor(itemView.context.getColor(R.color.orange))
+            if (item.isClick) {
+                binding.containerCardView.setCardBackgroundColor(itemView.context.getColor(R.color.orange))
                 binding.categoryNameTextView.setTextColor(itemView.context.getColor(R.color.orange))
-                binding.badgeImageView.setColorFilter(itemView.context.getColor(R.color.white))
+                binding.categoryIconImageView.setColorFilter(itemView.context.getColor(R.color.white))
             } else {
-                binding.cardView.setCardBackgroundColor(itemView.context.getColor(R.color.white))
+                binding.containerCardView.setCardBackgroundColor(itemView.context.getColor(R.color.white))
                 binding.categoryNameTextView.setTextColor(itemView.context.getColor(R.color.black))
-                binding.badgeImageView.setColorFilter(itemView.context.getColor(R.color.icon_color))
+                binding.categoryIconImageView.setColorFilter(itemView.context.getColor(R.color.icon_color))
             }
 
             binding.root.setOnClickListener {

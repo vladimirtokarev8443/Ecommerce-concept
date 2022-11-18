@@ -16,14 +16,14 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/bottomNavCard"
+            android:id="@+id/bottomNavContainerCard"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
-            android:id="@+id/filterCard"
+            android:id="@+id/filterContainerCard"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/bottomNavCard"
+            android:id="@+id/bottomNavContainerCard"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
-            android:id="@+id/filterCard"
+            android:id="@+id/filterContainerCard"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

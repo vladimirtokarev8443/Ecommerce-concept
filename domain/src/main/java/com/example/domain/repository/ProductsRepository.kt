@@ -8,7 +8,7 @@ interface ProductsRepository {
 
     suspend fun getProducts(): Product
 
-    suspend fun getDetails(): DetailsProduct
+    suspend fun getDetailsProduct(): DetailsProduct
 
     suspend fun getCart(): Cart
 

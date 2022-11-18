@@ -19,7 +19,8 @@ import com.example.ecommerceconcept.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStoreBinding::inflate) {
+class HomeStoreFragment :
+    BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStoreBinding::inflate) {
 
     private val viewModel: HomeStoreViewModel by viewModels()
     private var categoryAdapter: CategoryAdapter? = null
@@ -28,7 +29,7 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.bottomNavigation.setupWithNavController(findNavController())
+        binding.bottomNavigationView.setupWithNavController(findNavController())
 
         initLists()
         observeViewModel()
@@ -38,17 +39,17 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
 
     }
 
-    private fun initLists(){
+    private fun initLists() {
         initCategory()
         initHotSales()
         initBestSeller()
     }
 
-    private fun initCategory(){
+    private fun initCategory() {
         categoryAdapter = CategoryAdapter {
             viewModel.onSelectedCategory(it)
         }
-        with(binding.categoryList){
+        with(binding.categoryRecycler) {
             adapter = categoryAdapter
             layoutManager = LinearLayoutManager(requireContext()).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
@@ -57,9 +58,9 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         }
     }
 
-    private fun initHotSales(){
-        with(binding.viewPager){
-            hotSalesAdapter = HotSalesAdapter {  }
+    private fun initHotSales() {
+        with(binding.hotSalesViewPager) {
+            hotSalesAdapter = HotSalesAdapter { }
             adapter = hotSalesAdapter
             offscreenPageLimit = 1
             addItemDecoration(ItemOffsetHotSales(requireContext()))
@@ -67,8 +68,8 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
         }
     }
 
-    private fun initBestSeller(){
-        with(binding.itemList){
+    private fun initBestSeller() {
+        with(binding.bestSellerRecycler) {
             bestSellerAdapter = BestSellerAdapter {
                 findNavController().navigate(HOME_TO_DETAILS)
             }
@@ -79,34 +80,42 @@ class HomeStoreFragment: BaseFragment<FragmentHomeStoreBinding>(FragmentHomeStor
     }
 
     private fun observeViewModel() {
-        viewModel.uiStateLiveData.observe(viewLifecycleOwner){
+        viewModel.uiStateLiveData.observe(viewLifecycleOwner) {
             categoryAdapter?.items = it.categories
             hotSalesAdapter?.items = it.hotSalesPhones
             bestSellerAdapter?.items = it.bestSellerPhones
         }
     }
 
-    private fun initFilter(){
-        val adapterBrand = ArrayAdapter(requireContext(), R.layout.item_auto_complete_text, resources.getStringArray(R.array.brand))
+    private fun initFilter() {
+        val adapterBrand = ArrayAdapter(
+            requireContext(),
+            R.layout.item_auto_complete_text,
+            resources.getStringArray(R.array.brand)
+        )
         (binding.brandTextImput.editText as? AutoCompleteTextView)?.setAdapter(adapterBrand)
 
-        val adapterPrice = ArrayAdapter(requireContext(), R.layout.item_auto_complete_text, resources.getStringArray(R.array.price))
+        val adapterPrice = ArrayAdapter(
+            requireContext(),
+            R.layout.item_auto_complete_text,
+            resources.getStringArray(R.array.price)
+        )
         (binding.priceTextImput.editText as? AutoCompleteTextView)?.setAdapter(adapterPrice)
 
     }
 
-    private fun filterListeners(){
+    private fun filterListeners() {
         binding.toolbar.setOnMenuItemClickListener {
-            binding.bottomContainer.transitionToEnd()
+            binding.bottomMotionContainer.transitionToEnd()
             true
         }
         binding.closeButton.setOnClickListener {
-            binding.bottomContainer.transitionToStart()
+            binding.bottomMotionContainer.transitionToStart()
         }
     }
 
-    private fun createBadgeToCart(){
-        binding.bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
+    private fun createBadgeToCart() {
+        binding.bottomNavigationView.getOrCreateBadge(R.id.cartFragment).apply {
             number = 2
         }
     }

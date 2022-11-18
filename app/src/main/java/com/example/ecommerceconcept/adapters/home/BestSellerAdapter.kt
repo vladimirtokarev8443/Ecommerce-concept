@@ -6,8 +6,7 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class BestSellerAdapter(
     private val onItemClicked: (position: Int) -> Unit
-):
-    AsyncListDifferDelegationAdapter<BestSeller>(RecyclerItemsDiffUtilCallback()) {
+) : AsyncListDifferDelegationAdapter<BestSeller>(RecyclerItemsDiffUtilCallback()) {
 
     init {
         delegatesManager.addDelegate(BestSellerAdapterDelegate(onItemClicked))

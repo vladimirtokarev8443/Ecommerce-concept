@@ -6,7 +6,7 @@ import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class CategoryAdapter(
     private val onItemClicked: (position: Int) -> Unit
-): AsyncListDifferDelegationAdapter<Category>(CategoryDiffUtilCallback()) {
+) : AsyncListDifferDelegationAdapter<Category>(CategoryDiffUtilCallback()) {
 
     init {
         delegatesManager.addDelegate(CategoryAdapterDelegate(onItemClicked))

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/containerCardView"
         android:layout_width="@dimen/item_category_width_card"
         android:layout_height="@dimen/item_category_height_card"
         app:cardCornerRadius="@dimen/corner_radius_super_large"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/badgeImageView"
+            android:id="@+id/categoryIconImageView"
             android:layout_width="@dimen/item_category_badge_width"
             android:layout_height="@dimen/item_category_badge_height"
             android:layout_gravity="center"
@@ -28,11 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/item_category_name_margin_top"
-        tools:text="Phones"
         android:textSize="@dimen/item_category_name_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/containerCardView"
+        tools:text="Phones" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

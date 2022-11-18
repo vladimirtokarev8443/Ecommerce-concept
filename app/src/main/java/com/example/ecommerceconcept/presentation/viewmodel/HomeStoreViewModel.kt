@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Category
-import com.example.domain.usecase.GetPhonesUseCase
+import com.example.domain.usecase.GetProductUseCase
 import com.example.domain.usecase.SelectedCategoryUseCase
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.models.HomeStoreState
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeStoreViewModel @Inject constructor(
     private val selectedCategoryUseCase: SelectedCategoryUseCase,
-    private val getPhonesUseCase: GetPhonesUseCase
+    private val getPhonesUseCase: GetProductUseCase
 ) : ViewModel() {
 
     private val uiStateMutLiveData = MutableLiveData<HomeStoreState>()
@@ -27,11 +27,11 @@ class HomeStoreViewModel @Inject constructor(
         getPhones()
     }
 
-    private fun createCategory(){
+    private fun createCategory() {
         uiStateMutLiveData.postValue(HomeStoreState(categories = createCategoryList()))
     }
 
-    fun getPhones(){
+    fun getPhones() {
         viewModelScope.launch {
             try {
                 val product = getPhonesUseCase.execute()
@@ -39,14 +39,15 @@ class HomeStoreViewModel @Inject constructor(
                     hotSalesPhones = product.hotSales,
                     bestSellerPhones = product.bestSeller
                 )
-                ui?.let{ uiStateMutLiveData.postValue(it) }
-            } catch (e: Exception){}
+                ui?.let { uiStateMutLiveData.postValue(it) }
+            } catch (e: Exception) {
+            }
         }
     }
 
     fun onSelectedCategory(categoryId: Int) {
         val ui = uiStateMutLiveData.value?.copy(
-            categories =  selectedCategoryUseCase.execute(
+            categories = selectedCategoryUseCase.execute(
                 categoryList = uiStateMutLiveData.value?.categories ?: createCategoryList(),
                 selectId = categoryId
             )

@@ -1,37 +1,43 @@
 package com.example.ecommerceconcept.adapters.details
 
 import android.content.res.ColorStateList
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemShopBinding
 import com.example.ecommerceconcept.models.DetailsSealed
+import com.example.ecommerceconcept.utils.viewBinding
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
-class DetailsShopAdapterDelegate:
-    AbsListItemAdapterDelegate<DetailsSealed.Shop, DetailsSealed, DetailsShopAdapterDelegate.ShopHolder>(){
+class DetailsShopAdapterDelegate :
+    AbsListItemAdapterDelegate<DetailsSealed.Shop, DetailsSealed, DetailsShopAdapterDelegate.ShopHolder>() {
 
-    override fun isForViewType(item: DetailsSealed, items: MutableList<DetailsSealed>, position: Int): Boolean {
+    override fun isForViewType(
+        item: DetailsSealed,
+        items: MutableList<DetailsSealed>,
+        position: Int
+    ): Boolean {
         return item is DetailsSealed.Shop
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): ShopHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemShopBinding.inflate(inflater, parent, false)
-        return ShopHolder(binding)
+        return ShopHolder(parent.viewBinding(ItemShopBinding::inflate))
     }
 
-    override fun onBindViewHolder(item: DetailsSealed.Shop, holder: ShopHolder, payloads: MutableList<Any>) {
+    override fun onBindViewHolder(
+        item: DetailsSealed.Shop,
+        holder: ShopHolder,
+        payloads: MutableList<Any>
+    ) {
         holder.bind(item)
     }
 
-    class ShopHolder(val binding: ItemShopBinding): RecyclerView.ViewHolder(binding.root){
+    class ShopHolder(val binding: ItemShopBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: DetailsSealed.Shop) = with(binding){
+        fun bind(item: DetailsSealed.Shop) = with(binding) {
             cpuTextView.text = item.cpu
             cameraTextView.text = item.camera
             ssdTextView.text = item.ssd
@@ -41,7 +47,7 @@ class DetailsShopAdapterDelegate:
 
         }
 
-        private fun ChipGroup.createColorChip(colors: List<String>){
+        private fun ChipGroup.createColorChip(colors: List<String>) {
             colors.forEachIndexed { index, color ->
                 val colorInt = color.toColorInt()
                 val colorStateList = ColorStateList.valueOf(colorInt)
@@ -62,7 +68,8 @@ class DetailsShopAdapterDelegate:
             }
 
         }
-        private fun ChipGroup.createVolumeChip(capacities: List<String>){
+
+        private fun ChipGroup.createVolumeChip(capacities: List<String>) {
             capacities.forEachIndexed { index, capacity ->
                 val chip = Chip(this.context).apply {
                     id = index
@@ -72,7 +79,7 @@ class DetailsShopAdapterDelegate:
                     text = capacity
                     isCheckable = true
                     isChecked = index == 0
-                    setOnCheckedChangeListener { buttonView, isChecked ->
+                    setOnCheckedChangeListener { _, isChecked ->
                         setChipBackgroundColorResource(if (isChecked) R.color.orange else R.color.white)
                     }
                 }

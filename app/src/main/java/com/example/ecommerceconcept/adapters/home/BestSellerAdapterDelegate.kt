@@ -1,7 +1,6 @@
 package com.example.ecommerceconcept.adapters.home
 
 import android.graphics.Paint
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +8,7 @@ import com.example.domain.models.BestSeller
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ItemBestSellerBinding
 import com.example.ecommerceconcept.utils.setImageGlide
+import com.example.ecommerceconcept.utils.viewBinding
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 
 class BestSellerAdapterDelegate(
@@ -25,9 +25,7 @@ class BestSellerAdapterDelegate(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): BestSellerHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemBestSellerBinding.inflate(inflater, parent,false)
-        return BestSellerHolder(binding, onItemClicked)
+        return BestSellerHolder(parent.viewBinding(ItemBestSellerBinding::inflate), onItemClicked)
     }
 
     override fun onBindViewHolder(
@@ -56,13 +54,13 @@ class BestSellerAdapterDelegate(
 
             brandTextView.text = item.title
 
-            discountTextView.text = itemView.resources.getString(R.string.price_with_usd, item.priceDiscount)
+            discountPriceTextView.text = itemView.resources.getString(R.string.price_with_usd, item.priceDiscount)
 
             priceTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             priceTextView.text = item.price.toString()
 
             favoritesImageView.setIconFavorites(isSelect)
-            favoritesCard.setOnClickListener {
+            containerCardView.setOnClickListener {
                 isSelect = isSelect.not()
                 favoritesImageView.setIconFavorites(isSelect)
             }

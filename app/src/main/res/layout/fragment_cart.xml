@@ -70,7 +70,7 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cartList"
+                android:id="@+id/cartRecycler"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/cart_cart_list_margin_top"
@@ -79,15 +79,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/materialDivider2"/>
+                app:layout_constraintBottom_toTopOf="@+id/dividerTop"/>
 
             <com.google.android.material.divider.MaterialDivider
-                android:id="@+id/materialDivider2"
+                android:id="@+id/dividerTop"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="@dimen/cart_divider_top_margin_bottom"
                 app:dividerColor="#33FFFFFF"
-                app:layout_constraintBottom_toTopOf="@id/totaltTextView"
+                app:layout_constraintBottom_toTopOf="@id/totalLableTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -101,11 +101,11 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/cart_text_size_small"
                 app:layout_constraintStart_toEndOf="@id/guideline"
-                app:layout_constraintBottom_toTopOf="@+id/deliveryTextView"
+                app:layout_constraintBottom_toTopOf="@+id/deliveryLableTextView"
                 app:layout_constraintStart_toStartOf="@+id/guideline" />
 
             <TextView
-                android:id="@+id/totaltTextView"
+                android:id="@+id/totalLableTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/cart_total_text_margin_start"
@@ -113,7 +113,7 @@
                 android:text="@string/cart_total_text"
                 android:textColor="@color/white"
                 android:textSize="@dimen/cart_text_size_small"
-                app:layout_constraintBottom_toTopOf="@+id/deliveryTextView"
+                app:layout_constraintBottom_toTopOf="@+id/deliveryLableTextView"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -126,11 +126,11 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/cart_text_size_small"
                 app:layout_constraintStart_toEndOf="@id/guideline"
-                app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+                app:layout_constraintBottom_toTopOf="@+id/dividerBottom"
                  />
 
             <TextView
-                android:id="@+id/deliveryTextView"
+                android:id="@+id/deliveryLableTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/cart_delivery_margin_start"
@@ -138,14 +138,14 @@
                 android:text="@string/cart_delivery_text"
                 android:textSize="@dimen/cart_text_size_small"
                 android:textColor="@color/white"
-                app:layout_constraintBottom_toTopOf="@+id/materialDivider"
+                app:layout_constraintBottom_toTopOf="@+id/dividerBottom"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.divider.MaterialDivider
-                android:id="@+id/materialDivider"
+                android:id="@+id/dividerBottom"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginBottom="21dp"
+                android:layout_marginBottom="@dimen/cart_divider_bottom_margin_bottom"
                 app:dividerColor="#33FFFFFF"
                 app:layout_constraintBottom_toTopOf="@id/checkoutButton"
                 app:layout_constraintEnd_toEndOf="parent"

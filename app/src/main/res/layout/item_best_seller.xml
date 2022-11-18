@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/item_best_seller_height"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/corner_radius_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,22 +14,23 @@
             android:id="@+id/productImageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_best_seller_image_height"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            android:id="@+id/discountTextView"
+            android:id="@+id/discountPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/item_best_seller_text"
-            android:textColor="?attr/colorSecondary"
             android:layout_marginStart="@dimen/item_best_seller_discount_margin_start"
             android:layout_marginTop="@dimen/item_best_seller_discount_margin_top"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="@dimen/item_best_seller_text"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/productImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/productImageView"
+            tools:text="Text view" />
 
         <TextView
             android:id="@+id/priceTextView"
@@ -38,22 +39,23 @@
             android:layout_marginStart="@dimen/item_best_seller_price_margin_start"
             android:textColor="@color/text_crossed_out_color"
             android:textSize="@dimen/item_best_seller_text_small"
-            app:layout_constraintBottom_toBottomOf="@+id/discountTextView"
-            app:layout_constraintStart_toEndOf="@+id/discountTextView" />
+            app:layout_constraintBottom_toBottomOf="@+id/discountPriceTextView"
+            app:layout_constraintStart_toEndOf="@+id/discountPriceTextView"
+            tools:text="Text view" />
 
         <TextView
             android:id="@+id/brandTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?attr/colorSecondary"
-            tools:text="TextView"
-            android:textSize="@dimen/item_best_seller_text_small"
             android:layout_marginTop="@dimen/item_best_seller_brand_margi_top"
-            app:layout_constraintStart_toStartOf="@+id/discountTextView"
-            app:layout_constraintTop_toBottomOf="@+id/discountTextView" />
+            android:textColor="?attr/colorSecondary"
+            android:textSize="@dimen/item_best_seller_text_small"
+            app:layout_constraintStart_toStartOf="@+id/discountPriceTextView"
+            app:layout_constraintTop_toBottomOf="@+id/discountPriceTextView"
+            tools:text="TextView" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/favoritesCard"
+            android:id="@+id/containerCardView"
             android:layout_width="@dimen/item_best_seller_favorites_width"
             android:layout_height="@dimen/item_best_seller_favorites_height"
             android:layout_marginTop="@dimen/item_best_seller_favorites_margin_top"

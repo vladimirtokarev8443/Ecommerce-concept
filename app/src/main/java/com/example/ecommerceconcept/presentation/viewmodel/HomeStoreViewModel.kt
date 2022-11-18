@@ -33,12 +33,14 @@ class HomeStoreViewModel @Inject constructor(
 
     fun getPhones(){
         viewModelScope.launch {
-           val product = getPhonesUseCase.execute()
-            val ui = uiStateMutLiveData.value?.copy(
-                hotSalesPhones = product.hotSales,
-                bestSellerPhones = product.bestSeller
-            )
-            ui?.let{ uiStateMutLiveData.postValue(it) }
+            try {
+                val product = getPhonesUseCase.execute()
+                val ui = uiStateMutLiveData.value?.copy(
+                    hotSalesPhones = product.hotSales,
+                    bestSellerPhones = product.bestSeller
+                )
+                ui?.let{ uiStateMutLiveData.postValue(it) }
+            } catch (e: Exception){}
         }
     }
 

@@ -24,7 +24,9 @@ class CartViewModel @Inject constructor(
 
     private fun getCart(){
         viewModelScope.launch {
-            cartMutLiveData.postValue(getCartUseCase.execute())
+            try {
+                cartMutLiveData.postValue(getCartUseCase.execute())
+            }catch (e: Exception){}
         }
     }
 

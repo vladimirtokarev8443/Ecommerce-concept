@@ -24,8 +24,10 @@ class DetailsViewModel @Inject constructor(
 
     private fun getDetails(){
         viewModelScope.launch {
-            val details = getDetailsUseCase.execute()
-            detailsMutLiveData.postValue(details)
+            try {
+                val details = getDetailsUseCase.execute()
+                detailsMutLiveData.postValue(details)
+            } catch (e: Exception){}
         }
     }
 }
